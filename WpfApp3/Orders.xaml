@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="WpfApp3.Orders"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp3"
+             mc:Ignorable="d" 
+             d:DesignHeight="737" d:DesignWidth="1104" FontFamily="Century Gothic" FontSize="16">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <GroupBox.Header>
+                <Label Content="Данные клиента" FontSize="14" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <StackPanel>
+                <Label Content="Имя"/>
+                <TextBox Name="ClientName"/>
+                <Label Content="Фамилия"/>
+                <TextBox Name="ClientSurName"/>
+                <Label Content="Отчество"/>
+                <TextBox Name="ClientMidName"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Пол"/>
+                    <ComboBox Name="Gender">
+                        <ComboBoxItem>М</ComboBoxItem>
+                        <ComboBoxItem>Ж</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
+            <GroupBox.Header>
+                <Label Content="Паспорт" FontSize="14" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <StackPanel>
+                <Label Content="Серия"/>
+                <TextBox Name="Passport_Ser" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="2"/>
+                <Label Content="Номер"/>
+                <TextBox Name="Passport_Num" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="6"/>
+                <Label Content="Дата выдачи"/>
+                <DatePicker Name="Date_Passport"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="3" Grid.Row="0" Grid.RowSpan="3">
+            <GroupBox.Header>
+                <Label Content="Загранпаспорт" FontSize="14" />
+            </GroupBox.Header>
+            <StackPanel>
+                <Label Content="Серия"/>
+                <TextBox Name="IntPassport_Ser" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="2"/>
+                <Label Content="Номер"/>
+                <TextBox Name="IntPassport_Num" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="7"/>
+                <Label Content="Телефон"/>
+                <TextBox Name="Phone_Number" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="10"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <GroupBox.Header>
+                <Label Content="Ваучер" FontSize="14" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <StackPanel>
+                <Label Content="Номер ваучера"/>
+                <TextBox Name="Voucher_Num" MaxLength="8"/>
+                <Label Content="Отель"/>
+                <TextBox Name="Hotel"/>
+                <Label Content="Компания предоставляющая услуги (название компании)"/>
+                <TextBox Name="Company"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="3" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <Label Content="Подробные данные отеля" FontSize="18" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Адрес отеля" Grid.Column="0" VerticalAlignment="Bottom"/>
+                <Label Content="Город" Grid.Row="1" VerticalAlignment="Bottom"/>
+                <Label Content="Страна" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom"/>
+                <Label Content="Стоимость" Grid.Row="2" VerticalAlignment="Bottom"/>
+                <TextBox Name="Address" Grid.Column="1" Grid.ColumnSpan="3"/>
+                <TextBox Name="City" Grid.Column="1" Grid.Row="1"/>
+                <TextBox Name="Country" Grid.Column="3" Grid.Row="1"/>
+                <TextBox Name="Cost" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" PreviewTextInput="Passport_Num_PreviewTextInput"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <Label Content="Заказ и путевка" FontSize="18" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Номер путевки" Grid.Column="0" />
+                <Label Content="Номер заказа" Grid.Row="1"/>
+                <Label Content="Стоимость заказа" Grid.Row="2"/>
+                <Label Content="Способ оплаты" Grid.Row="3"/>
+                <TextBox Name="Num_Trip" Grid.Column="1" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="4"/>
+                <TextBox Name="ID_Order" Grid.Column="1" Grid.Row="1" PreviewTextInput="Passport_Num_PreviewTextInput"/>
+                <TextBox Name="Order_Cost" Grid.Column="1" Grid.Row="2" PreviewTextInput="Passport_Num_PreviewTextInput"/>
+                <TextBox Name="Payment" Grid.Column="1" Grid.Row="3" PreviewTextInput="Passport_Num_PreviewTextInput" MaxLength="16"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="2">
+            <GroupBox.Header>
+                <Label Content="Авиабилет" FontSize="18" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <StackPanel>
+                <Label Content="Стоимость билета" />
+                <TextBox Name="Cost_Ticket" PreviewTextInput="Passport_Num_PreviewTextInput"/>
+                <Label Content="Дата вылета"/>
+                <DatePicker Name="Dates"/>
+            </StackPanel>
+        </GroupBox>
+        <DataGrid Name="DG" Grid.Row="5" Grid.ColumnSpan="8" Grid.RowSpan="2">
+        </DataGrid>
+        <Button Name="AcceptOrder" Content="Подтвердить заказ" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="2" Foreground="#DD000000" FontSize="18" Click="AcceptOrder_Click"/>
+    </Grid>
+</UserControl>
