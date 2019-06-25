@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using forms = System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,6 +27,7 @@ namespace WpfApp3
         public Profile()
         {
             InitializeComponent();
+            PathForDocs.Text = DB.docpath;
             if (user != null)
             {
                 Name.Text = user.Имя;
@@ -58,6 +61,15 @@ namespace WpfApp3
             auth.Show();
             window.Close();
             DB.login = false;
+        }
+
+        private void ChangePath_Click(object sender, RoutedEventArgs e)
+        {
+            forms.FolderBrowserDialog folderBrowser = new forms.FolderBrowserDialog();
+            forms.DialogResult result = folderBrowser.ShowDialog();
+            if (result == forms.DialogResult.OK)
+                DB.docpath = folderBrowser.SelectedPath;
+            PathForDocs.Text = DB.docpath;
         }
     }
 }

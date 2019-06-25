@@ -31,7 +31,7 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Column="5"  Grid.ColumnSpan="3" Grid.RowSpan="4">
+        <GroupBox Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="5" FontSize="24">
             <GroupBox.Header>
                 <Label Content="Смена пароля" FontSize="32" HorizontalAlignment="Center"/>
             </GroupBox.Header>
@@ -39,10 +39,10 @@
                 <TextBox Name="OldPass" materialDesign:HintAssist.Hint="Введите старый пароль" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
                 <TextBox Name="NewPass" materialDesign:HintAssist.Hint="Введите новый пароль" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
                 <TextBox Name="AcceptNewPass" materialDesign:HintAssist.Hint="Введите пароль еще раз" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
-                <Button Name="ChangePass"  Foreground="Black" VerticalAlignment="Center" Content="Подтвердить смену пароля" Click="ChangePass_Click"/>
+                <Button Name="ChangePass"  Foreground="Black" VerticalAlignment="Center" Content="Подтвердить смену пароля" Click="ChangePass_Click" FontSize="22"/>
             </UniformGrid>
         </GroupBox>
-        <GroupBox Grid.Row="5" Grid.Column="5"  Grid.ColumnSpan="3" Grid.RowSpan="3">
+        <GroupBox Grid.Row="5" Grid.Column="4"  Grid.ColumnSpan="4" Grid.RowSpan="3">
             <GroupBox.Header>
                 <Label Content="Удаление аккаунта" FontSize="32" HorizontalAlignment="Center"/>
             </GroupBox.Header>
@@ -51,17 +51,26 @@
                 <Button Name="DelAcc" Foreground="Black" Content="Удалить аккаунт" FontSize="22" Click="DelAcc_Click"/>
             </UniformGrid>
         </GroupBox>
-        <GroupBox Grid.ColumnSpan="4" Grid.RowSpan="8" FontSize="28">
+        <GroupBox Grid.ColumnSpan="4" Grid.RowSpan="8" FontSize="24">
             <GroupBox.Header>
                 <Label Content="Данные аккаунта" FontSize="32" HorizontalAlignment="Center"/>
             </GroupBox.Header>
             <UniformGrid Rows="6" Columns="1">
                 <Label Content="Имя пользователя" VerticalAlignment="Center"/>
-                <TextBlock Name="Name" VerticalAlignment="Center"/>
+                <TextBlock Name="Name" VerticalAlignment="Center" FontSize="24"/>
                 <Label Content="Фамилия пользователя" VerticalAlignment="Center"/>
-                <TextBlock Name="SurName" VerticalAlignment="Center"/>
+                <TextBlock Name="SurName" VerticalAlignment="Center" FontSize="24"/>
                 <Label Content="Отчество пользователя" VerticalAlignment="Center"/>
-                <TextBlock Name="MidName" VerticalAlignment="Center"/>
+                <TextBlock Name="MidName" VerticalAlignment="Center" FontSize="24"/>
+            </UniformGrid>
+        </GroupBox>
+        <GroupBox Grid.Row="8" Grid.ColumnSpan="8" Grid.RowSpan="3" FontSize="24">
+            <GroupBox.Header>
+                <Label Content="Настройки приложения" FontSize="32" HorizontalAlignment="Center"/>
+            </GroupBox.Header>
+            <UniformGrid Rows="2" Columns="1">
+                <TextBlock Name="PathForDocs" VerticalAlignment="Center" FontSize="18"/>
+                <Button Name="ChangePath" Content="Изменить путь сохранения отчетов" Foreground="Black" FontSize="22" Click="ChangePath_Click"/>
             </UniformGrid>
         </GroupBox>
     </Grid>

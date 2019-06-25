@@ -54,7 +54,7 @@
                     </Viewbox>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Name="FinReport" Height="96">
+            <MenuItem Name="FinReport" Height="96" Click="FinReport_Click">
                 <MenuItem.Icon>
                     <Viewbox Margin="-11,-39,-49,-39">
                         <Canvas Width="24" Height="24">

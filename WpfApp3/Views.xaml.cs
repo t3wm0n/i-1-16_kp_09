@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace WpfApp3
 {
@@ -12,6 +14,7 @@ namespace WpfApp3
         static string item;
         TravelAgencyEntities tae = DB.tae;
         SqlDependency sql = new SqlDependency();
+
         public Views()
         {
             InitializeComponent();
@@ -122,7 +125,7 @@ namespace WpfApp3
             SqlDependency.Stop(DB.connect.ConnectionString);
         }
 
-        public static void AddEventChanges(string command)
+        public void AddEventChanges(string command)
         {
             item = command;
             SqlConnection connection = new SqlConnection(DB.connect.ConnectionString);
@@ -130,14 +133,20 @@ namespace WpfApp3
             SqlCommand cmd = new SqlCommand(item, connection);
             SqlDependency dependency = new SqlDependency(cmd);
             dependency.OnChange += new OnChangeEventHandler(OnChange);
-            cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
         }
 
-        public static void OnChange(object sender, SqlNotificationEventArgs e)
+        public void OnChange(object sender, SqlNotificationEventArgs e)
         {
             if (e.Info != SqlNotificationInfo.Invalid)
             {
-                MessageBox.Show("Загрузка таблицы, пожалуйста подождите!");
+                //MessageBox.Show("Загрузка таблицы, пожалуйста подождите!");
+                int dtname = DB.dT.FindIndex(n => n.TableName == DB.tableName);
+                DB.zap(item,DB.dT[dtname]);
+                this.Dispatcher.Invoke(() =>
+                {
+                    DG.Items.Refresh();
+                });
                 AddEventChanges(item);
             }
         }

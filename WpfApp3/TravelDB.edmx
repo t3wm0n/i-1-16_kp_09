@@ -451,10 +451,11 @@
         </Function>
         <Function Name="Add_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Role_Name" Type="varchar" Mode="In" />
-          <Parameter Name="Operator" Type="varchar" Mode="In" />
-          <Parameter Name="Accountant" Type="varchar" Mode="In" />
-          <Parameter Name="Admin" Type="varchar" Mode="In" />
-          <Parameter Name="Guest" Type="varchar" Mode="In" />
+          <Parameter Name="Add_Source" Type="int" Mode="In" />
+          <Parameter Name="Add_Data" Type="int" Mode="In" />
+          <Parameter Name="Delete_Data" Type="int" Mode="In" />
+          <Parameter Name="Update_Data" Type="int" Mode="In" />
+          <Parameter Name="Create_Report" Type="int" Mode="In" />
         </Function>
         <Function Name="Add_Ticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Cost" Type="int" Mode="In" />
@@ -621,10 +622,11 @@
         <Function Name="Update_Role" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="Role_Name" Type="varchar" Mode="In" />
-          <Parameter Name="Operator" Type="varchar" Mode="In" />
-          <Parameter Name="Accountant" Type="varchar" Mode="In" />
-          <Parameter Name="Admin" Type="varchar" Mode="In" />
-          <Parameter Name="Guest" Type="varchar" Mode="In" />
+          <Parameter Name="Add_Source" Type="int" Mode="In" />
+          <Parameter Name="Add_Data" Type="int" Mode="In" />
+          <Parameter Name="Delete_Data" Type="int" Mode="In" />
+          <Parameter Name="Update_Data" Type="int" Mode="In" />
+          <Parameter Name="Create_Report" Type="int" Mode="In" />
         </Function>
         <Function Name="Update_Ticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -1244,10 +1246,11 @@
           </FunctionImport>
           <FunctionImport Name="Add_Role">
             <Parameter Name="Role_Name" Mode="In" Type="String" />
-            <Parameter Name="Operator" Mode="In" Type="String" />
-            <Parameter Name="Accountant" Mode="In" Type="String" />
-            <Parameter Name="Admin" Mode="In" Type="String" />
-            <Parameter Name="Guest" Mode="In" Type="String" />
+            <Parameter Name="Add_Source" Mode="In" Type="Int32" />
+            <Parameter Name="Add_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Delete_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Update_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Create_Report" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Add_Ticket">
             <Parameter Name="Cost" Mode="In" Type="Int32" />
@@ -1377,10 +1380,11 @@
           <FunctionImport Name="Update_Role">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="Role_Name" Mode="In" Type="String" />
-            <Parameter Name="Operator" Mode="In" Type="String" />
-            <Parameter Name="Accountant" Mode="In" Type="String" />
-            <Parameter Name="Admin" Mode="In" Type="String" />
-            <Parameter Name="Guest" Mode="In" Type="String" />
+            <Parameter Name="Add_Source" Mode="In" Type="Int32" />
+            <Parameter Name="Add_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Delete_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Update_Data" Mode="In" Type="Int32" />
+            <Parameter Name="Create_Report" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Update_Ticket">
             <Parameter Name="ID" Mode="In" Type="Int32" />

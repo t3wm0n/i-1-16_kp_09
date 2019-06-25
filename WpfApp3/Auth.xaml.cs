@@ -6,9 +6,6 @@ using System.Windows;
 
 namespace WpfApp3
 {
-    /// <summary>
-    /// Логика взаимодействия для Auth.xaml
-    /// </summary>
     public partial class Auth : Window
     {
         TravelAgencyEntities tae = DB.tae;
@@ -26,7 +23,7 @@ namespace WpfApp3
             SqlCommand command = new SqlCommand("", connect)
             {
                 CommandText = "SELECT * FROM [User] JOIN [Role] on [User].[Role_ID] = [Role].[ID_Role]" +
-                " WHERE Email = '" + Log.Text + "' AND " + DB.decypt + "UserPassword)) = '" + Pass.Password + "'"
+                " WHERE Email = '" + Log.Text + "' AND " + DB.decrypt + "UserPassword)) = '" + Pass.Password + "'"
             };
             try
             {

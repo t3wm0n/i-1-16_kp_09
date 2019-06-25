@@ -18,6 +18,7 @@ namespace WpfApp3
         public static string catalog = "TravelAgency";
         public static string userid = "t3wm0n";
         public static string password = "maxim1354";
+        public static string docpath = AppDomain.CurrentDomain.BaseDirectory;
         public static SqlConnection connect = new SqlConnection("Data Source = " + datasource + "; Initial Catalog = " + catalog + "; Persist Security Info = true; User ID = " + userid + "; Password = " + password + ";");
         public static bool login = false;
         public static string Log;
@@ -30,7 +31,7 @@ namespace WpfApp3
             Update_Data = 0,
             Create_Report = 0;
         public static List<int> NewOrders = new List<int>();
-        public const string decypt = "CONVERT(VARCHAR(512),DecryptByPassphrase('ZOTOVKOSINOVAGLAZUNOV',";
+        public const string decrypt = "CONVERT(VARCHAR(512),DecryptByPassphrase('ZOTOVKOSINOVAGLAZUNOV',";
 
         public static DataTable vrAir_Ticket = new DataTable("Air_Ticket");
         public static DataTable vrAirport = new DataTable("Airport");
@@ -46,6 +47,24 @@ namespace WpfApp3
         public static DataTable vrTrip = new DataTable("Trip");
         public static DataTable vrUser = new DataTable("User");
         public static DataTable vrVoucher = new DataTable("Voucher");
+
+        public static List<DataTable> dT = new List<DataTable>()
+        {
+            vrAir_Ticket,
+            vrAirport,
+            vrCity,
+            vrClient,
+            vrCompany,
+            vrCountry,
+            vrHotel,
+            vrOrder,
+            vrPayment,
+            vrReport,
+            vrRole,
+            vrTrip,
+            vrUser,
+            vrVoucher
+        };
 
         public const string qrAir_Ticket = "SELECT at.ID_Air_Ticket, at.Cost_Ticket, at.Dates, a.Airport_Name, c.Имя, c.Фамилия, c.Отчество " +
             "FROM dbo.Air_Ticket AS at JOIN dbo.Airport AS a ON a.ID_Airport = at.Airport_ID JOIN dbo.DecryptClient AS c ON c.ID = at.Client_ID";
@@ -68,9 +87,9 @@ namespace WpfApp3
             "r.Add_Data, r.Delete_Data, r.Update_Data, r.Create_Report FROM dbo.[Role] AS r";
         public const string qrTrip = "SELECT T.[ID_Trip], T.[Num_Trip], T.[Name_Trip], V.Voucher_Num, AT.Dates FROM dbo.Trip T " +
             "JOIN dbo.Voucher V ON T.Voucher_ID = V.ID_Voucher JOIN dbo.Air_Ticket AT ON T.Air_Ticket_ID = AT.ID_Air_Ticket";
-        public const string qrUser = "SELECT u.Email, u.Пароль, u.ID, u.Имя, u.Фамилия, u.Отчество, r.Role_Name as 'Роль' " +
-            "FROM dbo.[DecryptUser] AS u JOIN dbo.[Role] AS r ON r.ID_Role = u.Роль";
-        public const string qrEncryptUser = "SELECT u.Email, u.UserPassword, u.ID_User, u.UserName, u.UserSurName, u.UserMidName, " +
+        public const string qrUser = "SELECT u.ID, u.Email, u.Пароль, u.Имя, u.Фамилия, u.Отчество, u.Роль " +
+            "FROM dbo.[DecryptUser] AS u";
+        public const string qrEncryptUser = "SELECT u.ID_User, u.Email, u.UserPassword, u.UserName, u.UserSurName, u.UserMidName, " +
             "r.Role_Name FROM dbo.[User] AS u JOIN dbo.[Role] AS r ON r.ID_Role = u.Role_ID";
         public const string qrVoucher = "SELECT v.ID_Voucher, v.Voucher_Num,h.Hotel_Name, c.Company_Name " +
             "FROM dbo.Voucher AS v JOIN dbo.Hotel AS h ON h.ID_Hotel = v.Hotel_ID JOIN dbo.Company AS c ON c.ID_Company = v.Company_ID";
@@ -102,72 +121,72 @@ namespace WpfApp3
         //Заполнение всех DataTable
         public static void dataAirTicket()
         {
-            zap(qrAir_Ticket, vrAir_Ticket);
+            zap(qrAir_Ticket, dT[0]);
         }
         
         public static void dataAirport()
         {
-            zap(qrAirport, vrAirport);
+            zap(qrAirport, dT[1]);
         }
 
         public static void dataCity()
         {
-            zap(qrCity, vrCity);
+            zap(qrCity, dT[2]);
         }
 
         public static void dataClient()
         {
-            zap(qrClient, vrClient);
+            zap(qrEncryptClient, dT[3]);
         }
 
         public static void dataCompany()
         {
-            zap(qrCompany, vrCompany);
+            zap(qrCompany, dT[4]);
         }
 
         public static void dataCountry()
         {
-            zap(qrCountry, vrCountry);
-        }
-
-        public static void dataReport()
-        {
-            zap(qrReport, vrReport);
+            zap(qrCountry, dT[5]);
         }
 
         public static void dataHotel()
         {
-            zap(qrHotel, vrHotel);
+            zap(qrHotel, dT[6]);
         }
 
         public static void dataOrder()
         {
-            zap(qrOrder, vrOrder);
+            zap(qrOrder, dT[7]);
         }
 
         public static void dataPayment()
         {
-            zap(qrPayment, vrPayment);
+            zap(qrPayment, dT[8]);
+        }
+
+        public static void dataReport()
+        {
+            zap(qrReport, dT[9]);
         }
 
         public static void dataRole()
         {
-            zap(qrRole, vrRole);
+            zap(qrRole, dT[10]);
         }
 
         public static void dataTrip()
         {
-            zap(qrTrip, vrTrip);
+            zap(qrTrip, dT[11]);
         }
 
         public static void dataUser()
         {
-            zap(qrUser, vrUser);
+            zap(qrEncryptUser, dT[12]);
         }
         
         public static void dataVoucher()
         {
-            zap(qrVoucher, vrVoucher);
+            zap(qrVoucher, dT[13]);
         }
 
         public const string regMail = "Регистрация в программе IstTurist";

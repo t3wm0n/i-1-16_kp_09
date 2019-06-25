@@ -104,7 +104,12 @@ namespace WpfApp3
         {
             MainGrid.Children.Clear();
             MainGrid.Children.Add(new ConnectConfiguration());
+        }
 
+        private void FinReport_Click(object sender, RoutedEventArgs e)
+        {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(new Reports());
         }
     }
 }

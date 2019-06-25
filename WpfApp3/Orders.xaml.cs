@@ -63,9 +63,9 @@ namespace WpfApp3
 
         private void AcceptOrder_Click(object sender, RoutedEventArgs e)
         {
-            //Order ord = tae.Order.Find(NO);
-            //ord.Promocode = "";
-            //tae.SaveChanges();
+            Order ord = tae.Order.Find(NO);
+            ord.Promocode = "";
+            tae.SaveChanges();
             this.Visibility = Visibility.Collapsed;
         }
     }

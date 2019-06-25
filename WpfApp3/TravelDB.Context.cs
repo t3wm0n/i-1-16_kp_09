@@ -213,29 +213,33 @@ namespace WpfApp3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_Report", orderParameter, report_DateParameter, costsParameter, profitParameter);
         }
     
-        public virtual int Add_Role(string role_Name, string @operator, string accountant, string admin, string guest)
+        public virtual int Add_Role(string role_Name, Nullable<int> add_Source, Nullable<int> add_Data, Nullable<int> delete_Data, Nullable<int> update_Data, Nullable<int> create_Report)
         {
             var role_NameParameter = role_Name != null ?
                 new ObjectParameter("Role_Name", role_Name) :
                 new ObjectParameter("Role_Name", typeof(string));
     
-            var operatorParameter = @operator != null ?
-                new ObjectParameter("Operator", @operator) :
-                new ObjectParameter("Operator", typeof(string));
+            var add_SourceParameter = add_Source.HasValue ?
+                new ObjectParameter("Add_Source", add_Source) :
+                new ObjectParameter("Add_Source", typeof(int));
     
-            var accountantParameter = accountant != null ?
-                new ObjectParameter("Accountant", accountant) :
-                new ObjectParameter("Accountant", typeof(string));
+            var add_DataParameter = add_Data.HasValue ?
+                new ObjectParameter("Add_Data", add_Data) :
+                new ObjectParameter("Add_Data", typeof(int));
     
-            var adminParameter = admin != null ?
-                new ObjectParameter("Admin", admin) :
-                new ObjectParameter("Admin", typeof(string));
+            var delete_DataParameter = delete_Data.HasValue ?
+                new ObjectParameter("Delete_Data", delete_Data) :
+                new ObjectParameter("Delete_Data", typeof(int));
     
-            var guestParameter = guest != null ?
-                new ObjectParameter("Guest", guest) :
-                new ObjectParameter("Guest", typeof(string));
+            var update_DataParameter = update_Data.HasValue ?
+                new ObjectParameter("Update_Data", update_Data) :
+                new ObjectParameter("Update_Data", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_Role", role_NameParameter, operatorParameter, accountantParameter, adminParameter, guestParameter);
+            var create_ReportParameter = create_Report.HasValue ?
+                new ObjectParameter("Create_Report", create_Report) :
+                new ObjectParameter("Create_Report", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Add_Role", role_NameParameter, add_SourceParameter, add_DataParameter, delete_DataParameter, update_DataParameter, create_ReportParameter);
         }
     
         public virtual int Add_Ticket(Nullable<int> cost, Nullable<System.DateTime> date, Nullable<int> client, Nullable<int> airport)
@@ -657,7 +661,7 @@ namespace WpfApp3
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Report", iDParameter, order_IDParameter, report_DateParameter, costsParameter, profitParameter);
         }
     
-        public virtual int Update_Role(Nullable<int> iD, string role_Name, string @operator, string accountant, string admin, string guest)
+        public virtual int Update_Role(Nullable<int> iD, string role_Name, Nullable<int> add_Source, Nullable<int> add_Data, Nullable<int> delete_Data, Nullable<int> update_Data, Nullable<int> create_Report)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -667,23 +671,27 @@ namespace WpfApp3
                 new ObjectParameter("Role_Name", role_Name) :
                 new ObjectParameter("Role_Name", typeof(string));
     
-            var operatorParameter = @operator != null ?
-                new ObjectParameter("Operator", @operator) :
-                new ObjectParameter("Operator", typeof(string));
+            var add_SourceParameter = add_Source.HasValue ?
+                new ObjectParameter("Add_Source", add_Source) :
+                new ObjectParameter("Add_Source", typeof(int));
     
-            var accountantParameter = accountant != null ?
-                new ObjectParameter("Accountant", accountant) :
-                new ObjectParameter("Accountant", typeof(string));
+            var add_DataParameter = add_Data.HasValue ?
+                new ObjectParameter("Add_Data", add_Data) :
+                new ObjectParameter("Add_Data", typeof(int));
     
-            var adminParameter = admin != null ?
-                new ObjectParameter("Admin", admin) :
-                new ObjectParameter("Admin", typeof(string));
+            var delete_DataParameter = delete_Data.HasValue ?
+                new ObjectParameter("Delete_Data", delete_Data) :
+                new ObjectParameter("Delete_Data", typeof(int));
     
-            var guestParameter = guest != null ?
-                new ObjectParameter("Guest", guest) :
-                new ObjectParameter("Guest", typeof(string));
+            var update_DataParameter = update_Data.HasValue ?
+                new ObjectParameter("Update_Data", update_Data) :
+                new ObjectParameter("Update_Data", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Role", iDParameter, role_NameParameter, operatorParameter, accountantParameter, adminParameter, guestParameter);
+            var create_ReportParameter = create_Report.HasValue ?
+                new ObjectParameter("Create_Report", create_Report) :
+                new ObjectParameter("Create_Report", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Role", iDParameter, role_NameParameter, add_SourceParameter, add_DataParameter, delete_DataParameter, update_DataParameter, create_ReportParameter);
         }
     
         public virtual int Update_Ticket(Nullable<int> iD, Nullable<int> cost, Nullable<System.DateTime> date, Nullable<int> client, Nullable<int> airport)
