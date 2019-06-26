@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,44 @@ namespace WpfApp3
     /// </summary>
     public partial class UC_Payment : UserControl
     {
+        public string cols = "";
         public UC_Payment()
         {
             InitializeComponent();
+            DG.ItemsSource = DB.dataTable.DefaultView;
+            foreach (DataColumn column in DB.dataTable.Columns)
+            {
+                if (column.Ordinal + 1 != DB.dataTable.Columns.Count)
+                    cols += column.ToString() + ", ";
+                else
+                    cols += column.ToString();
+                ColumnsList.Items.Add(column.ToString());
+            }
+        }
+
+        private void SearchB_Click(object sender, RoutedEventArgs e)
+        {
+            DBFunctions.FindService(ColumnsList.Text, TBSearchFilter.Text, DG, cols, DB.tableName + "_Method");
+        }
+
+        private void FilterB_Click(object sender, RoutedEventArgs e)
+        {
+            DBFunctions.ServiceFilter(ColumnsList.Text, TBSearchFilter.Text, DG, cols, DB.tableName + "_Method");
+        }
+
+        private void InsertB_Click(object sender, RoutedEventArgs e)
+        {
+            DB.tae.Add_Payment(Column2.Text);
+        }
+
+        private void UpdateB_Click(object sender, RoutedEventArgs e)
+        {
+            DB.tae.Update_Payment(Convert.ToInt32(Column1.Text), Column2.Text);
+        }
+
+        private void DeleteB_Click(object sender, RoutedEventArgs e)
+        {
+            DB.tae.Delete_Payment(Convert.ToInt32(Column1.Text));
         }
     }
 }

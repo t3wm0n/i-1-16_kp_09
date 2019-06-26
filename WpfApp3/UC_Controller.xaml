@@ -6,10 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp3"
         mc:Ignorable="d"
-        Title="Приложение БД" Height="450" Width="976.4" Loaded="Window_Loaded">
+        Title="Редакторование таблицы " Height="450" Width="900" Loaded="Window_Loaded">
     <Grid Name="MainGrid">
-        <!--local:UC_Ticket x:Name="UCTicket" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="968" Visibility="Hidden"/
-        UCTicket.Visibility = Visibility.Visible;
-        -->
+        
     </Grid>
 </Window>

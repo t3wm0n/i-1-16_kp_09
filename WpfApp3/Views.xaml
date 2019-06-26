@@ -36,7 +36,7 @@
         <ComboBox Name="CB_Views" Grid.Column="1" Grid.Row="0" SelectionChanged="CB_Views_SelectionChanged" FontWeight="Bold" Height="34" FontSize="16" Background="#FF6637BA">
             <ComboBoxItem Name="CBI1" Content="Аэропорты"/>
             <ComboBoxItem Name="CBI2" Content="Города"/>
-            <ComboBoxItem Name="CBI3" Content="Клиенты"/>
+            <ComboBoxItem Name="CBI3" Content="Клиенты" Visibility="Hidden"/>
             <ComboBoxItem Name="CBI4" Content="Компании"/>
             <ComboBoxItem Name="CBI5" Content="Страны"/>
             <ComboBoxItem Name="CBI6" Content="Отчеты"/>

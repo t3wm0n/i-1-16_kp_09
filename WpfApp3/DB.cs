@@ -47,6 +47,7 @@ namespace WpfApp3
         public static DataTable vrTrip = new DataTable("Trip");
         public static DataTable vrUser = new DataTable("User");
         public static DataTable vrVoucher = new DataTable("Voucher");
+        public static DataTable dataTable;
 
         public static List<DataTable> dT = new List<DataTable>()
         {
@@ -68,8 +69,8 @@ namespace WpfApp3
 
         public const string qrAir_Ticket = "SELECT at.ID_Air_Ticket, at.Cost_Ticket, at.Dates, a.Airport_Name, c.Имя, c.Фамилия, c.Отчество " +
             "FROM dbo.Air_Ticket AS at JOIN dbo.Airport AS a ON a.ID_Airport = at.Airport_ID JOIN dbo.DecryptClient AS c ON c.ID = at.Client_ID";
-        public const string qrAirport = "SELECT Air.ID_Airport AS 'Номер', Air.Airport_Name AS 'Название аэропорта' FROM dbo.Airport Air";
-        public const string qrCity = "SELECT c.ID_City, c.City,c2.Country FROM dbo.City AS c JOIN dbo.Country AS c2 ON c2.ID_Country = c.Country_ID";
+        public const string qrAirport = "SELECT Air.ID_Airport, Air.Airport_Name FROM dbo.Airport Air";
+        public const string qrCity = "SELECT c.ID_City, c.City, c2.Country FROM dbo.City AS c JOIN dbo.Country AS c2 ON c2.ID_Country = c.Country_ID";
         public const string qrClient = "SELECT c.ID, c.Имя, c.Фамилия, c.Отчество, c.Пол, c.[Серия паспорта]," +
             "c.[Номер паспорта], c.[Дата выдачи], c.[Серия загранпаспорта], c.[Номер загранпаспорта],c.[Номер телефона] FROM dbo.DecryptClient AS c";
         public const string qrEncryptClient = "SELECT [ID_Client],[Name],[SurName],[MidName],[Gender],[Passport_Ser],[Passport_Num]," +

@@ -43,71 +43,86 @@ namespace WpfApp3
                 case 0:
                     DB.dataAirport();
                     DG.ItemsSource = DB.vrAirport.DefaultView;
+                    DB.dataTable = DB.vrAirport;
                     AddEventChanges(DB.qrAirport);
                     break;
                 case 1:
                     DB.dataCity();
                     DG.ItemsSource = DB.vrCity.DefaultView;
+                    DB.dataTable = DB.vrCity;
                     AddEventChanges(DB.qrCity);
                     break;
                 case 2:
                     DB.dataClient();
                     DG.ItemsSource = DB.vrClient.DefaultView;
+                    DB.dataTable = DB.vrClient;
+                    UpdTable.IsEnabled = false;
                     AddEventChanges(DB.qrEncryptClient);
                     break;
                 case 3:
                     DB.dataCompany();
                     DG.ItemsSource = DB.vrCompany.DefaultView;
+                    DB.dataTable = DB.vrCompany;
                     AddEventChanges(DB.qrCompany);
                     break;
                 case 4:
                     DB.dataCountry();
                     DG.ItemsSource = DB.vrCountry.DefaultView;
+                    DB.dataTable = DB.vrCountry;
                     AddEventChanges(DB.qrCountry);
                     break;
                 case 5:
                     DB.dataReport();
                     DG.ItemsSource = DB.vrReport.DefaultView;
+                    DB.dataTable = DB.vrReport;
                     AddEventChanges(DB.qrReport);
                     break;
                 case 6:
                     DB.dataHotel();
                     DG.ItemsSource = DB.vrHotel.DefaultView;
+                    DB.dataTable = DB.vrHotel;
                     AddEventChanges(DB.qrHotel);
                     break;
                 case 7:
                     DB.dataOrder();
                     DG.ItemsSource = DB.vrOrder.DefaultView;
+                    DB.dataTable = DB.vrOrder;
                     AddEventChanges(DB.qrOrder);
                     break;
                 case 8:
                     DB.dataPayment();
                     DG.ItemsSource = DB.vrPayment.DefaultView;
+                    DB.dataTable = DB.vrPayment;
                     AddEventChanges(DB.qrPayment);
                     break;
                 case 9:
                     DB.dataRole();
                     DG.ItemsSource = DB.vrRole.DefaultView;
+                    DB.dataTable = DB.vrRole;
                     AddEventChanges(DB.qrRole);
                     break;
                 case 10:
                     DB.dataTrip();
                     DG.ItemsSource = DB.vrTrip.DefaultView;
+                    DB.dataTable = DB.vrTrip;
                     AddEventChanges(DB.qrTrip);
                     break;
                 case 11:
                     DB.dataUser();
                     DG.ItemsSource = DB.vrUser.DefaultView;
+                    DB.dataTable = DB.vrUser;
                     AddEventChanges(DB.qrEncryptUser);
                     break;
                 case 12:
                     DB.dataVoucher();
                     DG.ItemsSource = DB.vrVoucher.DefaultView;
+                    DB.dataTable = DB.vrVoucher;
                     AddEventChanges(DB.qrVoucher);
                     break;
                 case 13:
                     DB.dataAirTicket();
                     DG.ItemsSource = DB.vrAir_Ticket.DefaultView;
+                    DB.dataTable = DB.vrAir_Ticket;
                     AddEventChanges(DB.qrAir_Ticket);
                     break;
             }
@@ -140,7 +155,6 @@ namespace WpfApp3
         {
             if (e.Info != SqlNotificationInfo.Invalid)
             {
-                //MessageBox.Show("Загрузка таблицы, пожалуйста подождите!");
                 int dtname = DB.dT.FindIndex(n => n.TableName == DB.tableName);
                 DB.zap(item,DB.dT[dtname]);
                 this.Dispatcher.Invoke(() =>
